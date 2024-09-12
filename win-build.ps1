@@ -57,7 +57,7 @@ Write-Host "[+] Cloning BinExport & Binary Ninja API..."
 if (Test-Path -Path $BE_PATH) {
     Push-Location $BE_PATH
     git fetch --all
-    #git reset --hard origin/main  # Because previous runs of this script will dirty the repo
+    git reset --hard origin/main  # Because previous runs of this script will dirty the repo
     Write-Host "BinExport exists, repo updated"
     Pop-Location
 } else {
