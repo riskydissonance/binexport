@@ -73,4 +73,5 @@ $finalContent = $scriptContent + $binaryCoreHeader + $footerContent
 $finalContent | clang-format --style=Google | Set-Content -Path "binaryninjacore.cc"
 
 
-$func = Get-Content "${BINARYNINJA_API_SRC}\function.cpp" | foreach { $_ -replace '#include <cstring>', '#include <cstring>`n#define WIN32`n#include <windows.h>`n#define GetObject GetObject'} | Set-Content -Path "${BINARYNINJA_API_SRC}\function.cpp"
+$func = Get-Content "${BINARYNINJA_API_SRC}\function.cpp" 
+$func | foreach { $_ -replace '#include <cstring>', '#include <cstring>`n#define WIN32`n#include <windows.h>`n#define GetObject GetObject'} | Set-Content -Path "${BINARYNINJA_API_SRC}\function.cpp"
